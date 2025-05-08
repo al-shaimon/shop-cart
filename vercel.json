@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/cart", "destination": "/cart.html" },
+    { "source": "/", "destination": "/index.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/src/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}

@@ -80,7 +80,7 @@ function renderProducts(productsToRender) {
             <div class="relative overflow-hidden group">
               <img src="${product.image}" alt="${
         product.name
-      }" class="w-full h-48 object-contain p-4 group-hover:scale-105 transition-transform">
+      }" class="w-full h-60 object-cover group-hover:scale-105 transition-transform">
               <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <button 
                   onclick="quickView(${product.id})"
