@@ -128,7 +128,8 @@ function loadCart() {
 }
 
 function updateCartCount() {
-  const count = cart.items.reduce((total, item) => total + item.quantity, 0);
+  // Count unique products in cart instead of total quantity
+  const count = cart.items.length;
   const cartCountEl = document.getElementById('cartCount');
   if (cartCountEl) {
     cartCountEl.textContent = count;

@@ -18,6 +18,72 @@
   .input {
     @apply w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary/50;
   }
+
+  /* Mobile Cart Item Styles */
+  .cart-item-mobile {
+    @apply border rounded-lg p-4 relative transition-all duration-200 hover:shadow-md;
+    animation: fadeSlideIn 0.3s ease-out;
+  }
+
+  .cart-item-mobile .item-image {
+    @apply w-20 h-20 object-contain rounded-md bg-gray-50 p-2;
+    transition: transform 0.2s ease;
+  }
+
+  .cart-item-mobile:hover .item-image {
+    transform: scale(1.05);
+  }
+
+  .cart-item-mobile .item-details {
+    @apply flex-1 ml-3;
+  }
+
+  .cart-item-mobile .item-title {
+    @apply font-semibold text-base truncate;
+  }
+
+  .cart-item-mobile .item-category {
+    @apply text-xs text-gray-500 mb-1;
+  }
+
+  .cart-item-mobile .quantity-controls {
+    @apply flex items-center border rounded overflow-hidden mt-2;
+  }
+
+  .cart-item-mobile .quantity-btn {
+    @apply px-2 py-1 text-sm bg-gray-100 transition-colors hover:bg-gray-200;
+  }
+
+  .cart-item-mobile .quantity-display {
+    @apply px-3 text-sm min-w-[30px] text-center;
+  }
+
+  .cart-item-mobile .price-info {
+    @apply text-right mt-2;
+  }
+
+  .cart-item-mobile .unit-price {
+    @apply text-xs text-gray-500;
+  }
+
+  .cart-item-mobile .total-price {
+    @apply font-semibold text-sm;
+  }
+
+  .cart-item-mobile .remove-btn {
+    @apply absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-50 text-red-500 transition-colors;
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 /* Hero Slider */

@@ -85,7 +85,8 @@ function resetOrderSummary() {
 }
 
 function updateCartCount() {
-  const count = cart.items.reduce((total, item) => total + item.quantity, 0);
+  // Count unique products in cart instead of total quantity
+  const count = cart.items.length;
   const cartCountEl = document.getElementById('cartCount');
   if (cartCountEl) {
     cartCountEl.textContent = count;
@@ -122,61 +123,116 @@ function updateCartDisplay() {
     checkoutBtn.classList.add('bg-primary', 'hover:bg-primary-dark');
   }
 
-  cartItems.innerHTML = `
-    <table class="w-full">
-      <thead class="border-b">
-        <tr>
-          <th class="text-left pb-4">Product</th>
-          <th class="text-center pb-4">Quantity</th>
-          <th class="text-right pb-4">Price</th>
-          <th class="text-right pb-4">Total</th>
-          <th class="pb-4"></th>
-        </tr>
-      </thead>
-      <tbody>
+  // Mobile-friendly cart display
+  const isMobile = window.innerWidth < 768;
+
+  if (isMobile) {
+    cartItems.innerHTML = `
+      <div class="space-y-4">
         ${cart.items
           .map(
             (item) => `
-          <tr class="border-b">
-            <td class="py-4">
-              <div class="flex items-center">
-                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain mr-4">
-                <div>
-                  <h4 class="font-semibold">${item.name}</h4>
-                  <p class="text-sm text-gray-500">${item.category}</p>
+          <div class="cart-item-mobile">
+            <div class="flex items-start">
+              <img src="${item.image}" alt="${item.name}" class="item-image">
+              <div class="item-details">
+                <h4 class="item-title">${item.name}</h4>
+                <p class="item-category">${item.category}</p>
+                <div class="flex items-center justify-between">
+                  <div class="quantity-controls">
+                    <button onclick="updateQuantity(${item.id}, ${
+              item.quantity - 1
+            })" class="quantity-btn">-</button>
+                    <span class="quantity-display">${item.quantity}</span>
+                    <button onclick="updateQuantity(${item.id}, ${
+              item.quantity + 1
+            })" class="quantity-btn">+</button>
+                  </div>
+                  <div class="price-info">
+                    <div class="unit-price">Price: $${item.price.toFixed(2)}</div>
+                    <div class="total-price">Total: $${(item.price * item.quantity).toFixed(
+                      2
+                    )}</div>
+                  </div>
                 </div>
               </div>
-            </td>
-            <td class="py-4">
-              <div class="flex items-center justify-center">
-                <button onclick="updateQuantity(${item.id}, ${
-              item.quantity - 1
-            })" class="btn btn-secondary px-2 py-1">-</button>
-                <span class="mx-2">${item.quantity}</span>
-                <button onclick="updateQuantity(${item.id}, ${
-              item.quantity + 1
-            })" class="btn btn-secondary px-2 py-1">+</button>
-              </div>
-            </td>
-            <td class="py-4 text-right">$${item.price.toFixed(2)}</td>
-            <td class="py-4 text-right font-semibold">$${(item.price * item.quantity).toFixed(
-              2
-            )}</td>
-            <td class="py-4 text-right">
-              <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
+            </div>
+            <button onclick="removeFromCart(${item.id})" class="remove-btn">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
         `
           )
           .join('')}
-      </tbody>
-    </table>
-  `;
+      </div>
+    `;
+  } else {
+    // Desktop version with table layout
+    cartItems.innerHTML = `
+      <table class="w-full">
+        <thead class="border-b">
+          <tr>
+            <th class="text-left pb-4">Product</th>
+            <th class="text-center pb-4">Quantity</th>
+            <th class="text-right pb-4">Price</th>
+            <th class="text-right pb-4">Total</th>
+            <th class="pb-4"></th>
+          </tr>
+        </thead>
+        <tbody>
+          ${cart.items
+            .map(
+              (item) => `
+            <tr class="border-b">
+              <td class="py-4">
+                <div class="flex items-center">
+                  <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain mr-4">
+                  <div>
+                    <h4 class="font-semibold">${item.name}</h4>
+                    <p class="text-sm text-gray-500">${item.category}</p>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4">
+                <div class="flex items-center justify-center">
+                  <button onclick="updateQuantity(${item.id}, ${
+                item.quantity - 1
+              })" class="btn btn-secondary px-2 py-1">-</button>
+                  <span class="mx-2">${item.quantity}</span>
+                  <button onclick="updateQuantity(${item.id}, ${
+                item.quantity + 1
+              })" class="btn btn-secondary px-2 py-1">+</button>
+                </div>
+              </td>
+              <td class="py-4 text-right">$${item.price.toFixed(2)}</td>
+              <td class="py-4 text-right font-semibold">$${(item.price * item.quantity).toFixed(
+                2
+              )}</td>
+              <td class="py-4 text-right">
+                <button onclick="removeFromCart(${
+                  item.id
+                })" class="text-red-500 hover:text-red-700">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          `
+            )
+            .join('')}
+        </tbody>
+      </table>
+    `;
+  }
 
   calculateTotals();
 }
+
+// Add event listener to handle resize and update cart display accordingly
+window.addEventListener('resize', function () {
+  if (cart.items.length > 0) {
+    updateCartDisplay();
+  }
+});
 
 function toggleMenu() {
   mobileMenu.classList.toggle('hidden');
