@@ -1,0 +1,131 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "price": 199.99,
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+      "description": "Premium wireless headphones with noise cancellation",
+      "category": "Electronics"
+    },
+    {
+      "id": 2,
+      "name": "Smart Watch",
+      "price": 299.99,
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500",
+      "description": "Modern smartwatch with health tracking features",
+      "category": "Electronics"
+    },
+    {
+      "id": 3,
+      "name": "Running Shoes",
+      "price": 89.99,
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
+      "description": "Comfortable running shoes for athletes",
+      "category": "Sports"
+    },
+    {
+      "id": 4,
+      "name": "Laptop Backpack",
+      "price": 49.99,
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
+      "description": "Durable laptop backpack with multiple compartments",
+      "category": "Accessories"
+    },
+    {
+      "id": 5,
+      "name": "Mechanical Keyboard",
+      "price": 129.99,
+      "image": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=500",
+      "description": "RGB mechanical keyboard with customizable switches",
+      "category": "Electronics"
+    },
+    {
+      "id": 6,
+      "name": "Fitness Tracker",
+      "price": 79.99,
+      "image": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?w=500",
+      "description": "Water-resistant fitness tracker with heart rate monitoring",
+      "category": "Electronics"
+    },
+    {
+      "id": 7,
+      "name": "Yoga Mat",
+      "price": 29.99,
+      "image": "https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=500",
+      "description": "Non-slip yoga mat with alignment lines",
+      "category": "Sports"
+    },
+    {
+      "id": 8,
+      "name": "Coffee Mug",
+      "price": 14.99,
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=500",
+      "description": "Ceramic coffee mug with temperature retention",
+      "category": "Home"
+    },
+    {
+      "id": 9,
+      "name": "Wireless Mouse",
+      "price": 39.99,
+      "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500",
+      "description": "Ergonomic wireless mouse with precision tracking",
+      "category": "Electronics"
+    },
+    {
+      "id": 10,
+      "name": "Desk Lamp",
+      "price": 49.99,
+      "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500",
+      "description": "Adjustable LED desk lamp with multiple brightness levels",
+      "category": "Home"
+    },
+    {
+      "id": 11,
+      "name": "Bluetooth Speaker",
+      "price": 89.99,
+      "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500",
+      "description": "Portable Bluetooth speaker with 20-hour battery life",
+      "category": "Electronics"
+    },
+    {
+      "id": 12,
+      "name": "Plant Pot",
+      "price": 19.99,
+      "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500",
+      "description": "Minimalist ceramic plant pot with drainage hole",
+      "category": "Home"
+    }
+  ],
+  "coupons": [
+    {
+      "code": "SAVE20",
+      "discount": 20,
+      "type": "percentage"
+    },
+    {
+      "code": "SAVE50",
+      "discount": 50,
+      "type": "percentage"
+    },
+    {
+      "code": "WELCOME10",
+      "discount": 10,
+      "type": "percentage"
+    },
+    {
+      "code": "FLASH25",
+      "discount": 25,
+      "type": "percentage"
+    },
+    {
+      "code": "SUMMER15",
+      "discount": 15,
+      "type": "percentage"
+    }
+  ],
+  "shipping": {
+    "standard": 10,
+    "express": 20
+  }
+}

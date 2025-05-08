@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern E-commerce</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <a href="/" class="text-2xl font-bold text-primary">ShopCart</a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/" class="text-gray-600 hover:text-primary">Home</a>
+            <a href="#products" class="text-gray-600 hover:text-primary">Products</a>
+            <a href="#" class="text-gray-600 hover:text-primary">About</a>
+            <a href="#" class="text-gray-600 hover:text-primary">Contact</a>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="/cart.html" class="relative">
+              <i class="fas fa-shopping-cart text-xl text-gray-600"></i>
+              <span
+                id="cartCount"
+                class="absolute -top-2 -right-2 bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs"
+                >0</span
+              >
+            </a>
+            <button id="menuBtn" class="md:hidden">
+              <i class="fas fa-bars text-xl text-gray-600"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-gray-800 bg-opacity-50 z-40 hidden">
+      <div
+        class="bg-white w-64 h-full transform transition-transform duration-300 -translate-x-full"
+      >
+        <div class="p-4">
+          <div class="flex justify-between items-center">
+            <h2 class="text-xl font-bold text-primary">Menu</h2>
+            <button id="closeMenu">
+              <i class="fas fa-times text-xl text-gray-600"></i>
+            </button>
+          </div>
+          <div class="mt-8 space-y-4">
+            <a href="/" class="block text-gray-600 hover:text-primary">Home</a>
+            <a href="#products" class="block text-gray-600 hover:text-primary">Products</a>
+            <a href="#" class="block text-gray-600 hover:text-primary">About</a>
+            <a href="#" class="block text-gray-600 hover:text-primary">Contact</a>
+            <a href="/cart.html" class="block text-gray-600 hover:text-primary">Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section with Slider -->
+    <section class="pt-16">
+      <div id="heroSlider" class="slider">
+        <div
+          class="slide"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?w=1600');
+          "
+        >
+          <div class="slide-content">
+            <h2 class="text-3xl font-bold mb-2">Summer Collection</h2>
+            <p class="mb-4">Discover the latest trends for your summer wardrobe</p>
+            <button class="btn btn-primary">Shop Now</button>
+          </div>
+        </div>
+        <div
+          class="slide"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1600');
+          "
+        >
+          <div class="slide-content">
+            <h2 class="text-3xl font-bold mb-2">New Electronics</h2>
+            <p class="mb-4">The latest gadgets at the best prices</p>
+            <button class="btn btn-primary">Explore</button>
+          </div>
+        </div>
+        <div
+          class="slide"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600');
+          "
+        >
+          <div class="slide-content">
+            <h2 class="text-3xl font-bold mb-2">Special Offers</h2>
+            <p class="mb-4">Get up to 50% off on selected items</p>
+            <button class="btn btn-primary">View Deals</button>
+          </div>
+        </div>
+
+        <!-- Slide Controls -->
+        <button id="prevSlide" class="slide-arrow slide-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="nextSlide" class="slide-arrow slide-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div id="sliderDots" class="slide-controls flex space-x-2"></div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+      <h2 class="text-2xl font-bold mb-6">Featured Products</h2>
+      <section
+        id="products"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      >
+        <!-- Products will be dynamically added here -->
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10 mt-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">ShopCart</h3>
+            <p class="text-gray-400">Your one-stop shop for all things amazing.</p>
+            <div class="flex space-x-4 mt-4">
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Shop</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white">New Arrivals</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">Best Sellers</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">Sale</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">All Products</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Customer Service</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">Track Order</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">Return Policy</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">Shipping Info</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+            <p class="text-gray-400 mb-4">
+              Subscribe to receive updates, access to exclusive deals, and more.
+            </p>
+            <div class="flex">
+              <input type="email" placeholder="Enter your email" class="w-full p-2 rounded-l" />
+              <button class="bg-primary px-4 rounded-r">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400">© 2025 ShopCart. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+            <a href="#" class="text-gray-400 hover:text-white">Cookies Settings</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>
