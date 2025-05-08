@@ -101,7 +101,7 @@ function updateCartDisplay() {
       <div class="flex flex-col items-center justify-center h-40">
         <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-2"></i>
         <p class="text-gray-500">Your cart is empty</p>
-        <a href="/" class="btn btn-primary mt-4">Continue Shopping</a>
+        <a href="index.html" class="btn btn-primary mt-4">Continue Shopping</a>
       </div>
     `;
 
@@ -334,6 +334,13 @@ function applyCoupon() {
 }
 
 function processCheckout() {
+  // Disable the checkout button to prevent multiple clicks
+  if (checkoutBtn) {
+    checkoutBtn.disabled = true;
+    checkoutBtn.classList.add('opacity-70', 'cursor-not-allowed');
+    checkoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+  }
+
   // Typically this would redirect to a checkout page or call a payment API
   showToast('Processing your order...', 'success');
 
@@ -359,6 +366,13 @@ function processCheckout() {
     // Reset coupon input
     if (couponInput) {
       couponInput.value = '';
+    }
+
+    // Re-enable the checkout button (though it will be disabled by updateCartDisplay since cart is empty)
+    if (checkoutBtn) {
+      checkoutBtn.disabled = false;
+      checkoutBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+      checkoutBtn.innerHTML = '<i class="fas fa-lock mr-2"></i>Proceed to Checkout';
     }
   }, 2000);
 }
