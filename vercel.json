@@ -1,7 +1,13 @@
 {
   "rewrites": [
     { "source": "/cart", "destination": "/cart.html" },
+    { "source": "/cart/", "destination": "/cart.html" },
     { "source": "/", "destination": "/index.html" }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/cart", "dest": "/cart.html" },
+    { "src": "/(.*)", "status": 404, "dest": "/index.html" }
   ],
   "cleanUrls": true,
   "trailingSlash": false,
