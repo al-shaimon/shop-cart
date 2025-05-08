@@ -4,7 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart - Modern E-commerce</title>
-    <link rel="stylesheet" href="/src/styles/main.css" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2563eb',
+              secondary: '#475569',
+            },
+            container: {
+              center: true,
+              padding: '1rem',
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Custom styles -->
+    <style type="text/tailwindcss">
+      @layer components {
+        .btn {
+          @apply px-4 py-2 rounded transition-colors duration-200;
+        }
+        .btn-primary {
+          @apply bg-primary text-white hover:bg-primary/90;
+        }
+        .btn-secondary {
+          @apply bg-secondary text-white hover:bg-secondary/90;
+        }
+        .input {
+          @apply w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary/50;
+        }
+        /* Mobile Cart Item Styles */
+        .cart-item-mobile {
+          @apply border rounded-lg p-4 relative transition-all duration-200 hover:shadow-md;
+        }
+        .cart-item-mobile .item-image {
+          @apply w-20 h-20 object-contain rounded-md bg-gray-50 p-2;
+        }
+        .cart-item-mobile .item-details {
+          @apply flex-1 ml-3;
+        }
+        .cart-item-mobile .item-title {
+          @apply font-semibold text-base truncate;
+        }
+        .cart-item-mobile .item-category {
+          @apply text-xs text-gray-500 mb-1;
+        }
+        .cart-item-mobile .quantity-controls {
+          @apply flex items-center border rounded overflow-hidden mt-2;
+        }
+        .cart-item-mobile .quantity-btn {
+          @apply px-2 py-1 text-sm bg-gray-100 transition-colors hover:bg-gray-200;
+        }
+        .cart-item-mobile .quantity-display {
+          @apply px-3 text-sm min-w-[30px] text-center;
+        }
+        .cart-item-mobile .price-info {
+          @apply text-right mt-2;
+        }
+        .cart-item-mobile .unit-price {
+          @apply text-xs text-gray-500;
+        }
+        .cart-item-mobile .total-price {
+          @apply font-semibold text-sm;
+        }
+        .cart-item-mobile .remove-btn {
+          @apply absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-50 text-red-500 transition-colors;
+        }
+      }
+    </style>
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -16,16 +89,16 @@
       <div class="container mx-auto px-4">
         <div class="flex justify-between items-center h-16">
           <div class="flex items-center">
-            <a href="/" class="text-2xl font-bold text-primary">ShopCart</a>
+            <a href="index.html" class="text-2xl font-bold text-primary">ShopCart</a>
           </div>
           <div class="hidden md:flex items-center space-x-8">
-            <a href="/" class="text-gray-600 hover:text-primary">Home</a>
-            <a href="/#products" class="text-gray-600 hover:text-primary">Products</a>
+            <a href="index.html" class="text-gray-600 hover:text-primary">Home</a>
+            <a href="index.html#products" class="text-gray-600 hover:text-primary">Products</a>
             <a href="#" class="text-gray-600 hover:text-primary">About</a>
             <a href="#" class="text-gray-600 hover:text-primary">Contact</a>
           </div>
           <div class="flex items-center space-x-4">
-            <a href="/cart.html" class="relative">
+            <a href="cart.html" class="relative">
               <i class="fas fa-shopping-cart text-xl text-gray-600"></i>
               <span
                 id="cartCount"
@@ -54,11 +127,13 @@
             </button>
           </div>
           <div class="mt-8 space-y-4">
-            <a href="/" class="block text-gray-600 hover:text-primary">Home</a>
-            <a href="/#products" class="block text-gray-600 hover:text-primary">Products</a>
+            <a href="index.html" class="block text-gray-600 hover:text-primary">Home</a>
+            <a href="index.html#products" class="block text-gray-600 hover:text-primary"
+              >Products</a
+            >
             <a href="#" class="block text-gray-600 hover:text-primary">About</a>
             <a href="#" class="block text-gray-600 hover:text-primary">Contact</a>
-            <a href="/cart.html" class="block text-gray-600 hover:text-primary">Cart</a>
+            <a href="cart.html" class="block text-gray-600 hover:text-primary">Cart</a>
           </div>
         </div>
       </div>
@@ -79,7 +154,7 @@
             <div class="flex flex-col items-center justify-center h-40">
               <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-2"></i>
               <p class="text-gray-500">Your cart is empty</p>
-              <a href="/" class="btn btn-primary mt-4">Continue Shopping</a>
+              <a href="index.html" class="btn btn-primary mt-4">Continue Shopping</a>
             </div>
           </div>
         </div>
@@ -138,7 +213,7 @@
                 Proceed to Checkout
               </button>
 
-              <a href="/" class="text-primary text-center block mt-4 hover:underline">
+              <a href="index.html" class="text-primary text-center block mt-4 hover:underline">
                 <i class="fas fa-arrow-left mr-1"></i> Continue Shopping
               </a>
             </div>
@@ -153,7 +228,7 @@
         <i class="fas fa-shopping-cart text-6xl text-gray-300 mb-4"></i>
         <h2 class="text-2xl font-bold text-gray-700 mb-2">Your cart is empty</h2>
         <p class="text-gray-600 mb-6">Looks like you haven't added any products to your cart yet</p>
-        <a href="/" class="btn btn-primary">Start Shopping</a>
+        <a href="index.html" class="btn btn-primary">Start Shopping</a>
       </div>
     </div>
 
@@ -223,6 +298,6 @@
       </div>
     </footer>
 
-    <script type="module" src="/src/js/cart.js"></script>
+    <script src="src/js/cart.js"></script>
   </body>
 </html>

@@ -4,7 +4,105 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modern E-commerce</title>
-    <link rel="stylesheet" href="/src/styles/main.css" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2563eb',
+              secondary: '#475569',
+            },
+            container: {
+              center: true,
+              padding: '1rem',
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Custom styles -->
+    <style type="text/tailwindcss">
+      @layer components {
+        .btn {
+          @apply px-4 py-2 rounded transition-colors duration-200;
+        }
+        .btn-primary {
+          @apply bg-primary text-white hover:bg-primary/90;
+        }
+        .btn-secondary {
+          @apply bg-secondary text-white hover:bg-secondary/90;
+        }
+        .input {
+          @apply w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary/50;
+        }
+        /* Mobile Cart Item Styles */
+        .cart-item-mobile {
+          @apply border rounded-lg p-4 relative transition-all duration-200 hover:shadow-md;
+        }
+        .cart-item-mobile .item-image {
+          @apply w-20 h-20 object-contain rounded-md bg-gray-50 p-2;
+        }
+        .cart-item-mobile .item-details {
+          @apply flex-1 ml-3;
+        }
+        .cart-item-mobile .item-title {
+          @apply font-semibold text-base truncate;
+        }
+        .cart-item-mobile .item-category {
+          @apply text-xs text-gray-500 mb-1;
+        }
+        .cart-item-mobile .quantity-controls {
+          @apply flex items-center border rounded overflow-hidden mt-2;
+        }
+        .cart-item-mobile .quantity-btn {
+          @apply px-2 py-1 text-sm bg-gray-100 transition-colors hover:bg-gray-200;
+        }
+        .cart-item-mobile .quantity-display {
+          @apply px-3 text-sm min-w-[30px] text-center;
+        }
+        .cart-item-mobile .price-info {
+          @apply text-right mt-2;
+        }
+        .cart-item-mobile .unit-price {
+          @apply text-xs text-gray-500;
+        }
+        .cart-item-mobile .total-price {
+          @apply font-semibold text-sm;
+        }
+        .cart-item-mobile .remove-btn {
+          @apply absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-50 text-red-500 transition-colors;
+        }
+        /* Slider styles */
+        .slider {
+          @apply relative overflow-hidden h-[500px];
+        }
+        .slide {
+          @apply absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center bg-cover bg-center;
+        }
+        .slide.active {
+          @apply opacity-100 z-10;
+        }
+        .slide-content {
+          @apply bg-white/80 backdrop-blur p-8 rounded-lg text-center max-w-lg mx-4;
+        }
+        .slide-controls {
+          @apply absolute bottom-8 left-0 right-0 flex justify-center z-10;
+        }
+        .slide-arrow {
+          @apply absolute top-1/2 -translate-y-1/2 bg-white/50 backdrop-blur w-10 h-10 flex items-center justify-center rounded-full z-10 text-gray-800 hover:bg-white transition-colors;
+        }
+        .slide-prev {
+          @apply left-4;
+        }
+        .slide-next {
+          @apply right-4;
+        }
+      }
+    </style>
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -25,7 +123,7 @@
             <a href="#" class="text-gray-600 hover:text-primary">Contact</a>
           </div>
           <div class="flex items-center space-x-4">
-            <a href="/cart.html" class="relative">
+            <a href="cart.html" class="relative">
               <i class="fas fa-shopping-cart text-xl text-gray-600"></i>
               <span
                 id="cartCount"
@@ -58,7 +156,7 @@
             <a href="#products" class="block text-gray-600 hover:text-primary">Products</a>
             <a href="#" class="block text-gray-600 hover:text-primary">About</a>
             <a href="#" class="block text-gray-600 hover:text-primary">Contact</a>
-            <a href="/cart.html" class="block text-gray-600 hover:text-primary">Cart</a>
+            <a href="cart.html" class="block text-gray-600 hover:text-primary">Cart</a>
           </div>
         </div>
       </div>
@@ -192,7 +290,7 @@
         </div>
       </div>
     </footer>
-
-    <script type="module" src="/src/js/main.js"></script>
+    <!-- Main JS -->
+    <script src="src/js/main.js"></script>
   </body>
 </html>
